@@ -41,17 +41,22 @@ const Sidebar = () => {
       </div>
 
       {session && (
-        <img
-          onClick={signOut}
-          src={
-            session.user?.image ||
-            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          }
-          alt="Profile picture"
-          width={200}
-          height={200}
-          className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
-        />
+        <button
+          onClick={(e) => {
+            signOut();
+          }}
+        >
+          <img
+            src={
+              session.user?.image ||
+              `https://ui-avatar.com/api/?name=${session?.user?.name}`
+            }
+            alt="Profile picture"
+            width={200}
+            height={200}
+            className="h-12 w-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
+          />
+        </button>
       )}
     </div>
   );
